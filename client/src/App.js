@@ -3,21 +3,25 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './components/layout/pages/Home';
 import About from './components/layout/pages/About';
+
+import ContactState from './context/contact/ContactState';
 import './App.css';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Fragment>
-        <Navbar />
-        <div className='container'>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-          </Routes>
-        </div>
-      </Fragment>
-    </BrowserRouter>
+    <ContactState>
+      <BrowserRouter>
+        <Fragment>
+          <Navbar />
+          <div className='container'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+            </Routes>
+          </div>
+        </Fragment>
+      </BrowserRouter>
+    </ContactState>
   );
 };
 
